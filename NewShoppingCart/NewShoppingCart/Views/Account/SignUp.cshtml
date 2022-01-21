@@ -1,0 +1,27 @@
+﻿@model ShoppingCartBALObject.LoginObject
+
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>Sign-Up</h1>
+<hr />
+@using (Html.BeginForm("SignUp", "Account"))
+{
+    @Html.HiddenFor(x=>x.UserID)
+    @Html.LabelFor(x=>x.email)<br>
+    @Html.EditorFor(x=>x.email)<br /><br />
+
+    @Html.LabelFor(x=>x.password)<br>
+    @Html.EditorFor(x=>x.password)<br /><br />
+    @Html.HiddenFor(x=>x.IsActive)
+    @Html.HiddenFor(x=>x.Role)
+
+    <input type="submit" value="Sign-Up" class="btn btn-info">
+}
+<br />
+
+<div>
+    @Html.ActionLink("Back To Login","Login","Account",null,new{@class="btn btn-light"})
+</div>
+
+

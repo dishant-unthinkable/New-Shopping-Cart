@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ShoppingCartBALObject.ProductObject>
+@using System.Collections.Generic
+@{
+    ViewData["Title"] = "ProductList";
+}
+<head>
+    @*<link rel="stylesheet" href="~/css/list.css" />*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+
+@section UserInfo{
+        <h4 style="padding-top:12px;">Hello @TempData["usermail"]</h4>&emsp;
+        <h4 style="padding-top:10px;">@Html.ActionLink("My Cart","ShowCartProduct","MyCart",new{ProductId= TempData["userId"]},new{@class="btn btn-success btn-sm"})</h4>
+        <h6 style="padding-top:12px;">@TempData["cartItems"]</h6>
+    }
+<h1 style="margin-left:20px;">@(ViewBag.ProductType)s</h1>
+<div class="main1" style=" display: flex; flex-wrap: wrap; gap: 50px 20px; padding: 20px; justify-content: space-evenly;">
+    
+    @foreach (var item in Model) {
+        <div class="item" style="width: 380px; margin:auto;">
+            <img src="~/@(ViewBag.ProductType)Img/@(item.Model).jpg" class="product-img" style="width: 380px; height: 300px;"/><br>
+            @Html.DisplayFor(modelItem => item.Brand)<br><br>
+            @Html.DisplayFor(modelItem => item.Model)<br><br>
+            @Html.ActionLink("Add to cart","Cart","MyCart",new{ProductId= item.ProductId},new{@class="btn btn-warning"})
+            @Html.ActionLink("View","ViewProduct","View",new{ProductId= item.ProductId},new{@class="btn btn-info"})
+        </div>
+    }
+</div>

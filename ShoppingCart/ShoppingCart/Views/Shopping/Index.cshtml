@@ -1,0 +1,40 @@
+﻿@using ShoppingCartBALObject;
+@model ProductObject
+<body>
+    <br /><br /><br /><br />
+@using(@Html.BeginForm("AddAllProducts","Shopping"))
+{
+    @Html.HiddenFor(x=>x.ProductId)<br />
+    @Html.Label("Brand")<br />
+    @Html.EditorFor(x => x.Brand);<br />
+
+    
+    @Html.Label("RAM")<br />
+    @Html.EditorFor(x => x.RAM);<br />
+
+    
+    @Html.Label("Storage")<br />
+    @Html.EditorFor(x => x.Storage);
+    <br />
+    
+    @Html.Label("Model")<br />
+    @Html.EditorFor(x => x.Model);
+    <br />
+    
+    @Html.Label("Color")<br />
+    @Html.EditorFor(x => x.Color);<br />
+
+    
+    @Html.Label("Description")<br />
+    @Html.EditorFor(x => x.Description);<br />
+
+    
+    @Html.Label("Price")<br />
+    @Html.EditorFor(x => x.Price);<br />
+
+    @Html.Label("ProdectType")<br />
+    @Html.EditorFor(x => x.ProductType);<br /><br />
+
+    <input type="submit" value="Save" />
+    }
+</body>

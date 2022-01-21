@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ShoppingCartBALObject.ProductReviewObject>
+@using System.Collections.Generic
+@using ShoppingCartBALObject;
+
+
+<head>
+    @*<link rel="stylesheet" href="~/css/list.css" />*@
+</head>
+<body>
+    @section UserInfo{
+        <h4 style="padding-top:12px;">Hello @TempData["usermail"]</h4>&emsp;
+        <h4 style="padding-top:10px;">@Html.ActionLink("My Cart","ShowCartProduct","MyCart",null,new{@class="btn btn-success btn-sm"})</h4>
+        <h6 style="padding-top:12px;">@TempData["cartItems"]</h6>
+    }
+
+   
+    <div class="main2" style="margin-left:auto; margin-right:auto; width:400px;">
+        
+        @foreach (var item in Model) {
+
+            TempData["imgtype"] = item.ProductType;
+
+            <div class="item1">
+                <h1 style="margin-left:20px;">@(item.ProductType)</h1>
+                <img src="~/@(item.ProductType)Img/@(item.Model).jpg" class="product-img"/><br>
+                @{
+                    TempData["ProductId"]= item.ProductId;
+                }
+                Brand - @Html.DisplayFor(modelItem => item.Brand)<br /><br />
+                Model - @Html.DisplayFor(modelItem => item.Model)<br /><br />
+                Color - @Html.DisplayFor(modelItem => item.Color)<br /><br />
+                RAM - @Html.DisplayFor(modelItem => item.RAM)<br /><br />
+                Storage - @Html.DisplayFor(modelItem => item.Storage)<br /><br />
+                Price - @Html.DisplayFor(modelItem => item.Price)/-<br /><br />
+                Description - @Html.DisplayFor(modelItem => item.Description)<br /><br />
+                @Html.ActionLink("Add to cart","Cart","MyCart",new{ProductId= item.ProductId},new{@class="btn btn-warning"})<br><br>
+                @Html.TextArea("Feedback","",new{id="Feedback"})<br>
+                @Html.ActionLink("Save","SaveReview","View",new{UserId=TempData["userId"], ProductId = item.ProductId},new{ onclick = "this.href += '&Feedback=' + document.getElementById('Feedback').value;", @class="btn btn-info" })<br><br>
+             </div>
+             break;
+        }
+        <div class="item1">
+            <h2>ProductFeedback - </h2><br />
+            @foreach (var item in Model)
+            {
+                if (item.ProductFeedback == null)
+                    continue;
+                <text>User - </text> @Html.DisplayFor(modelItem => item.ProductFeedback)<br />
+            }
+        </div>
+    </div>
+   
+
+   
+    
+</body>

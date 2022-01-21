@@ -1,0 +1,30 @@
+﻿@model ShoppingCartBALObject.LoginObject
+
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>Login</h1>
+
+
+<hr />
+@using (Html.BeginForm("Login", "Account"))
+{
+    @Html.LabelFor(x=>x.email)<br>
+    @Html.EditorFor(x=>x.email)<br /><br />
+
+    @Html.LabelFor(x=>x.password)<br>
+    @Html.EditorFor(x=>x.password)<br /><br />
+
+    <input type="submit" value="Login" class="btn btn-info">
+    <text>&emsp;&emsp;&emsp;</text>@Html.ActionLink("Sign-in with Google","GoogleLogin","Account",null,new{@class="btn btn-primary"})
+}
+
+<br />
+<div>
+    @Html.ActionLink("Back To Sign-Up","SignUp","Account",null,new{@class="btn btn-light"})
+    
+</div>
+
+ 
+
+

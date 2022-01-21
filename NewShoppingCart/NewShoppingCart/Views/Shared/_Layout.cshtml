@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShoppingCart</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="header navbar d-flex">
+        <img src="~/logo4.jpg" class="logo_img" style="width:40px; height:40px;"/>
+        <div style="display:flex; width:100%; margin-right:10px;">
+            <div class="main" style="gap:20px;">
+                <div class="child-div">
+                    @Html.ActionLink("Home","Index","Home",null,new{@class= "nav1 btn", @id="home-link"})
+                </div>
+                <div class="child-div">
+                    @Html.ActionLink("Contact","Contact","Home",null,new{@class= "nav1 btn"})
+                </div>
+                <div class="child-div">
+                    @Html.ActionLink("About-us","AboutUs","Home",null,new{@class= "nav1 btn"})
+                </div>
+                <div>
+                     <input type="text" placeholder="search..." id="search-box" name="search"/>
+                     @*@Html.TextBox("search","","",new{id=""})*@
+                     @Html.ActionLink("Search", "ProductList", "Shopping", new{ ProductType = ViewBag.ProductType }, new { onclick = "this.href += '&searchFor=' + document.getElementById('search-box').value;", @class="btn btn-info btn-sm" })
+                 </div>
+                <div style="width:auto; display:flex;">
+               
+                    @{
+                        RenderSection("UserInfo",required:false);
+                    }
+                    
+
+                    &emsp;<h3>@Html.ActionLink("My Orders","MyOrders","OrderHistory",new{UserId = TempData["userId"]},new{@class="btn btn-success btn-sm"})</h3>
+                    &emsp;<h3>@Html.ActionLink("Logout","Logout","Account",null,new{@class="btn btn-danger btn-sm"})</h3>
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>

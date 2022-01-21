@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <br /><br /><br /><br /><br /><br /><br />>
+    @section UserInfo{
+        <h4 style="padding-top:12px;">Hello @TempData["usermail"]</h4>&emsp;
+        <h4 style="padding-top:10px;">@Html.ActionLink("My Cart","ShowCartProduct","MyCart",null,new{@class="btn btn-success btn-sm"})</h4>
+        <h6 style="padding-top:12px;">@TempData["cartItems"]</h6>
+    }
+    @Html.ActionLink("Laptop","ProductList","Shopping",new{ProductType= "Laptop"},new{@class="home-div-productlist"})
+    @Html.ActionLink("Mobile","ProductList","Shopping",new{ProductType= "Mobile"},new{@class="home-div-productlist"})
+    @Html.ActionLink("Add Product","Index","Shopping",null,new{@class="home-div-productlist"})<br />
+    
+</body>

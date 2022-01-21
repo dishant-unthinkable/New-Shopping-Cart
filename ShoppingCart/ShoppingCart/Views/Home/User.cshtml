@@ -1,0 +1,14 @@
+﻿@using ShoppingCart.Models
+@{
+    Layout = "_Layout";
+}
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    @Html.ActionLink("Laptop","ProductList","Shopping",new{ProductType= "Laptop"},new{@class="home-div-productlist"})
+    @Html.ActionLink("Mobile","ProductList","Shopping",new{ProductType= "Mobile"},new{@class="home-div-productlist"})
+
+</body>

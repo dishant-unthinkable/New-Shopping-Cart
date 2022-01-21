@@ -1,0 +1,27 @@
+﻿@using ShoppingCart.Models
+@model Contact
+<head>
+     <link rel="stylesheet" href="~/css/contact_us.css" />
+</head>
+<body>
+    <br /><br /><br /><br /><br />
+    @using (Html.BeginForm("Home", "Contact"))
+    {
+        <fieldset class="contact-form">
+            <legend>Contact-Us</legend>
+            @Html.DisplayName("First Name")<br>
+            @Html.EditorFor(x=>x.FirstName, new{htmlAttributes=new {@class="contact-field"}})<hr /><br>
+            @Html.DisplayName("Last Name")<br>
+            @Html.EditorFor(x=>x.LastName, new{htmlAttributes=new {@class="contact-field"}})<hr /><br>
+            @Html.DisplayName("Contact")<br>
+            @Html.EditorFor(x=>x.ContactNo, new{htmlAttributes=new {@class="contact-field"}})<hr /><br>
+            @Html.DisplayName("Email")<br>
+            @Html.EditorFor(x=>x.Email, new{htmlAttributes=new {@class="contact-field"}})<hr /><br>
+            @Html.DisplayName("Description")<br>
+            @Html.EditorFor(x=>x.Description, new{htmlAttributes=new {@class="contact-field"}})<hr /><br><br>
+
+            <input type="submit" value="Submit" class="contact-submit-btn"/>
+        </fieldset>
+        
+    }
+</body>

@@ -1,0 +1,48 @@
+﻿@using ShoppingCartBALObject;
+@model ProductObject
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    @section UserInfo{
+        <h4 style="padding-top:12px;">Hello @TempData["usermail"]</h4>&emsp;
+       <h4 style="padding-top:10px;">@Html.ActionLink("My Cart","ShowCartProduct","MyCart",new{ProductId= TempData["userId"]},new{@class="btn btn-success btn-sm"})</h4>
+        <h6 style="padding-top:12px;">@TempData["cartItems"]</h6>
+    }
+@using(@Html.BeginForm("AddAllProducts","Shopping"))
+{
+    @Html.HiddenFor(x=>x.ProductId)<br />
+    @Html.Label("Brand")<br />
+    @Html.EditorFor(x => x.Brand);<br />
+
+    
+    @Html.Label("RAM")<br />
+    @Html.EditorFor(x => x.RAM);<br />
+
+    
+    @Html.Label("Storage")<br />
+    @Html.EditorFor(x => x.Storage);
+    <br />
+    
+    @Html.Label("Model")<br />
+    @Html.EditorFor(x => x.Model);
+    <br />
+    
+    @Html.Label("Color")<br />
+    @Html.EditorFor(x => x.Color);<br />
+
+    
+    @Html.Label("Description")<br />
+    @Html.EditorFor(x => x.Description);<br />
+
+    
+    @Html.Label("Price")<br />
+    @Html.EditorFor(x => x.Price);<br />
+
+    @Html.Label("ProdectType")<br />
+    @Html.EditorFor(x => x.ProductType);<br /><br />
+
+    <input type="submit" value="Save" />
+    }
+</body>

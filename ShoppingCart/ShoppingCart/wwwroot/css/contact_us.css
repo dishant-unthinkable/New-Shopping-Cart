@@ -1,0 +1,30 @@
+﻿body {
+    background-color: gray;
+    background-image: -webkit-linear-gradient(top left, #a802e0, #f7676a);
+    color:white;
+}
+
+.contact-form{
+    margin:auto;
+    width:400px;
+}
+
+.contact-submit-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid rgb(255,204,0);
+    background-color:white;
+    font-weight:bold;
+}
+
+.contact-submit-btn:hover {
+    background-color: rgb(255,204,0);
+}
+
+.contact-field{
+    width:100%;
+    border:none;
+    background-color:transparent;
+    font-size:20px;
+}

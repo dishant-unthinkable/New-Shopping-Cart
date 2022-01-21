@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ShoppingCartBALObject.ProductObject>
+@using System.Collections.Generic
+@{
+    ViewData["Title"] = "ProductList";
+}
+<head>
+    <link rel="stylesheet" href="~/css/list.css" />
+</head>
+<br /><br /><br />
+<h1 style="margin-left:20px;">@(ViewBag.ProductType)s</h1>
+<div class="main1">
+    @{var temp=1;}
+    @foreach (var item in Model) {
+        <div class="item">
+            <img src="~/@(ViewBag.ProductType)Img/Product@(temp++).jpg" class="product-img"/><br>
+            @Html.DisplayFor(modelItem => item.Brand)<br><br>
+            @Html.DisplayFor(modelItem => item.Model)<br><br>
+            @Html.ActionLink("Add to cart","Cart","MyCart",new{ProductId= item.ProductId})
+            @Html.ActionLink("View","ViewProduct","View",new{ProductId= item.ProductId})
+        </div>
+    }
+</div>

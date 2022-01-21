@@ -1,0 +1,24 @@
+﻿.main1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 20px;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+.item {
+    width: 380px;
+    height: auto;
+}
+
+
+.product-img {
+    width: 380px;
+    height: 300px;
+}
+
+.main2{
+    width:500px;
+    margin:auto;
+   
+}

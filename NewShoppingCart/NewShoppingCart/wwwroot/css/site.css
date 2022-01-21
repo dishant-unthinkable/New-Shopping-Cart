@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    height: 60px;
+    box-shadow: 1px 1px 5px;
+    padding: 5px;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+}
+
+.logo_img {
+    width: 40px;
+    height: 40px;
+}
+
+.nav1 {
+    text-decoration: none;
+    color: black;
+    width: auto;
+    padding: 10px 20px;
+    height: auto;
+}
+
+.main {
+    margin-left: 10px;
+    align-items: center;
+    gap: 5px;
+    display: flex;
+}
+
+.child-div:hover {
+    background-color: rgb(255,204,0);
+    border-radius:3px;
+}
+
+#home-link {
+    background-color: rgb(255,204,0);
+}
+
+.home-div-productlist {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 75px;
+    border: 2px solid rgb(255,204,0);
+    margin-left: 20px;
+}
+
+    .home-div-productlist:hover {
+        background-color: rgb(255,204,0);
+    }

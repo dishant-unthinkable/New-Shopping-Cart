@@ -1,0 +1,23 @@
+﻿@model NewShoppingCart.Models.Payment
+
+
+@using(Html.BeginForm("CreateOrder","Payment")){
+
+    @Html.Hidden("UserId","UserId")<br />
+
+    @Html.LabelFor(x=>x.Name)<br />
+    @Html.TextBox("Name")<br /><br />
+
+    @Html.LabelFor(x=>x.Email)<br />
+    @Html.TextBox("Email")<br /><br />
+
+    @Html.LabelFor(x=>x.ContactNumber)<br />
+    @Html.TextBox("ContactNumber")<br /><br />
+
+    @Html.LabelFor(x=>x.Address)<br />
+    @Html.TextBox("Address")<br />
+
+    @Html.Hidden("Amount","Amount")<br />
+    
+    <input type="submit" value="Submit" />
+}
